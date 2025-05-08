@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <!-- Изображение аватара -->
+    <ImageView
+        android:id="@+id/imageViewAvatar"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_default_avatar"
+        android:contentDescription="@string/avatar_desc"
+        android:layout_marginTop="48dp"
+        android:scaleType="centerCrop"
+        android:clipToOutline="true"
+        android:layout_margin="4dp"
+        android:background="@drawable/avatar_border"/> <!-- Рамка поверх изображения -->
+
+
+
+    <!-- Кнопка для выбора аватара -->
+    <Button
+        android:id="@+id/buttonChooseAvatar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Выбрать аватар"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@color/white"
+        android:padding="12dp" />
+    <Button
+        android:id="@+id/buttonNextToEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="Далее" />
+
+</LinearLayout>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <!-- Заголовок -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Регистрация по Email"
+        android:textSize="20sp"
+        android:layout_marginTop="24dp"
+        android:layout_gravity="center"
+        android:textStyle="bold" />
+    <!-- Изображение аватара -->
+    <ImageView
+        android:id="@+id/avatarImageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_default_avatar"
+        android:contentDescription="@string/avatar_desc"
+        android:layout_marginTop="48dp"
+        android:scaleType="centerCrop"
+        android:clipToOutline="true"
+        android:layout_margin="4dp"
+        android:background="@drawable/avatar_border"/>
+
+    <!-- Поле для ввода Email -->
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/edit_text_bg" />
+
+    <!-- Текст, объясняющий, что на email придут логин и пароль -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="На указанный адрес будет отправлен логин и пароль для входа ребенка."
+        android:textSize="14sp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:textColor="@android:color/darker_gray"/>
+
+    <!-- Чекбокс для согласия на обработку персональных данных -->
+    <CheckBox
+        android:id="@+id/checkBoxDataProcessing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Согласен на обработку персональных данных"
+        android:layout_marginTop="32dp" />
+
+    <!-- Чекбокс для согласия на психологическое сопровождение -->
+    <CheckBox
+        android:id="@+id/checkBoxPsychologicalSupport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Согласен на психологическое сопровождение"
+        android:layout_marginTop="16dp" />
+
+    <!-- Кнопка для подтверждения согласия -->
+    <Button
+        android:id="@+id/buttonConfirmConsent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Подать документы"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@color/white"
+        android:padding="12dp" />
+    <!-- Кнопка для перехода к логину -->
+    <Button
+        android:id="@+id/buttonGoToLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Войти"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/green"
+        android:textColor="@color/white"
+        android:padding="12dp" />
+    <!-- Текст для отображения ответа -->
+    <TextView
+        android:id="@+id/textViewResponse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="16sp"
+        android:textColor="@android:color/holo_green_dark"
+        android:layout_marginTop="16dp"
+        android:gravity="center"/>
+
+</LinearLayout>

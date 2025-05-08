@@ -74,3 +74,8 @@ Thumbs.db
 # ----------------------
 *.swp
 *~
+
+
+# Google Cloud credentials
+backend/ServerApp/noteddiary-*.json
+

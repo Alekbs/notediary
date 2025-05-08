@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Журнал оценок</title>
+  <link rel="stylesheet" href="../css/globals.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <h1>Журнал оценок</h1>
+      <button class="back-btn">Назад</button>
+      <div class="teacher-info">
+        <span class="teacher-name"></span>
+        <div class="teacher-avatar"></div>
+      </div>
+    </header>
+
+    <main class="main-content journal-layout">
+      <div class="journal-controls">
+        <label>
+          Предмет:
+          <select class="subject-select">
+            <!-- Заполняется JS -->
+          </select>
+        </label>
+        <label>
+          Класс:
+          <select class="class-select">
+            <!-- Заполняется JS -->
+          </select>
+        </label>
+      </div>
+
+      <div class="p-4 max-w-4xl mx-auto">
+        <label for="monthSelect" class="block mb-2 text-sm font-medium text-gray-700">Выберите месяц</label>
+        <select id="monthSelect" class="mb-4 block w-60 rounded-md border-gray-300 shadow-sm">
+          <!-- JS добавит опции месяцев -->
+        </select>
+      
+        <table class="journal-table w-full border-separate border-spacing-0">
+          <thead>
+            <tr id="weekdaysRow">
+              <th class="p-2 pt-4 text-xs text-gray-500 align-bottom"></th>
+              <!-- JS добавит названия дней недели -->
+            </tr>
+            <tr id="tableHeader">
+              <th class="p-2 font-medium text-left text-sm text-gray-600">Ученик</th>
+              <!-- JS добавит даты -->
+            </tr>
+          </thead>
+          <tbody class="students-list">
+            <!-- JS добавит строки учеников -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/journal.js"></script>
+</body>
+</html>

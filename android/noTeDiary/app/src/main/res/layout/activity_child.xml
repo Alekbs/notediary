@@ -1,0 +1,41 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editTextChildName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ФИО ребенка"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/editTextChildAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Адрес проживания"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/editTextLearningWorkplace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Место учебы"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/editTextChildContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Номер телефона"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/buttonNextToChild"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Далее" />
+</LinearLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <!-- Поле для ввода Email -->
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/edit_text_bg" />
+
+    <!-- Поле для ввода пароля -->
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Пароль"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edit_text_bg" />
+
+    <!-- Кнопка входа -->
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Войти"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@color/white"
+        android:padding="12dp" />
+
+    <!-- Кнопка подачи документов -->
+    <Button
+        android:id="@+id/buttonSubmitDocuments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Подать документы"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="bottom"
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:textColor="@color/white"
+        android:padding="12dp" />
+    <TextView
+        android:id="@+id/textViewResponse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="16sp"
+        android:textColor="@android:color/holo_green_dark"
+        android:layout_marginTop="16dp"
+        android:gravity="center"/>
+</LinearLayout>

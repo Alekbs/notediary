@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход и регистрация</title>
+</head>
+<body>
+    <h2>Вход в систему</h2>
+    <form id="loginForm">
+
+        
+
+        <label for="email">Email:</label><br />
+        <input type="text" id="email" name="email" required><br />
+
+        <label for="password">Пароль:</label><br />
+        <input type="password" id="password" name="password" required><br />
+
+        <button type="submit">Войти</button>
+    </form>
+
+    <div id="loginResult" style="margin-top:20px; color: green;"></div>
+
+    <hr />
+
+    <h2>Регистрация</h2>
+    <form id="registerForm">
+        <label for="regname">Name:</label><br />
+        <input type="text" id="regname" name="regname" required><br />
+
+        <label for="regEmail">Email:</label><br />
+        <input type="text" id="regEmail" name="regEmail" required><br />
+
+        <label for="regPassword">Пароль:</label><br />
+        <input type="password" id="regPassword" name="regPassword" required><br />
+
+        <label for="regRole">Роль:</label><br />
+        
+        <select id="regRole" name="regRole">
+            <option value="Student">Ученик</option>
+            <option value="Teacher">Преподаватель</option>
+            <option value="Admin">Админ</option>
+        </select><br /><br />
+        <div id="subjectsBlock" style="display: none;">
+            <label>Предметы:</label><br>
+            <select id="subjects" multiple style="width: 200px;">
+                <!-- Опции будут заполнены через JS -->
+            </select>
+            <small>Выберите предметы (удерживайте Ctrl для множественного выбора)</small>
+        </div>
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+
+    <div id="registerResult" style="margin-top:20px; color: blue;"></div>
+
+    <script>
+        const baseUrl = 'http://localhost:5000';
+
+        // Загрузка предметов при изменении роли
+    document.getElementById('regRole').addEventListener('change', async function() {
+        const subjectsBlock = document.getElementById('subjectsBlock');
+        subjectsBlock.style.display = this.value === 'Teacher' ? 'block' : 'none';
+        
+        if (this.value === 'Teacher' && document.getElementById('subjects').children.length === 0) {
+            const response = await fetch(`${baseUrl}/api/subjects`);
+            if (response.ok) {
+                const subjects = await response.json();
+                const select = document.getElementById('subjects');
+                subjects.forEach(subject => {
+                    const option = document.createElement('option');
+                    option.value = subject.id;
+                    option.textContent = subject.name;
+                    select.appendChild(option);
+                });
+            }
+        }
+    });
+
+    // Модифицируем обработчик регистрации
+    document.getElementById('registerForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const role = document.getElementById('regRole').value;
+        const subjectIds = role === 'Teacher' 
+            ? Array.from(document.getElementById('subjects').selectedOptions)
+                .map(option => parseInt(option.value))
+            : null;
+
+        // В тело запроса добавляем subjectIds для Teacher
+        const body = {
+            name: document.getElementById('regname').value,
+            email: document.getElementById('regEmail').value,
+            password: document.getElementById('regPassword').value,
+            role: role,
+            subjectIds: subjectIds
+        };
+
+        const response = await fetch(`${baseUrl}/api/users/register`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const resultDiv = document.getElementById('loginResult');
+
+            const response = await fetch(`${baseUrl}/api/users/login`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                const token = data.token;
+
+                const userResponse = await fetch(`${baseUrl}/api/users/test/${data.userId}`, {
+                    headers: { 'Authorization': `Bearer ${"token"}` }
+                });
+
+                if (userResponse.ok) {
+                    const user = await userResponse.json();
+                    resultDiv.innerHTML = `
+                        <p><strong>Добро пожаловать, ${user.name}!</strong></p>
+                        <p>Ваша роль: ${user.role}</p>
+                    `;
+                } else {
+                    resultDiv.innerText = 'Ошибка при получении пользователя';
+                }
+            } else {
+                const error = await response.text();
+                resultDiv.innerText = 'Ошибка входа: ' + error;
+            }
+        });
+
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editTextMotherName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ФИО матери"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/editTextMotherPassport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Паспортные данные"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/editTextMotherAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Адрес проживания"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/editTextMotherWorkplace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Место работы"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/editTextMotherContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Контактные данные"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/buttonNextToFather"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Далее" />
+</LinearLayout>
