@@ -1,0 +1,76 @@
+# ----------------------
+# VS Code
+# ----------------------
+.vscode/
+
+# ----------------------
+# .NET / C#
+# ----------------------
+**/bin/
+**/obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ASP.NET secrets
+**/appsettings.Development.json
+secrets.json
+
+# Entity Framework
+Migrations/
+
+# ----------------------
+# Android Studio / Java
+# ----------------------
+**/.gradle/
+**/.idea/
+**/build/
+**/local.properties
+*.iml
+.gradle/
+captures/
+
+# Android Studio cache
+.cxx/
+.externalNativeBuild/
+.idea/caches
+.idea/libraries
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+
+# Keystore files (никогда не загружай!)
+*.jks
+
+# ----------------------
+# Node.js / JS
+# ----------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+.env
+
+# ----------------------
+# Logs and OS files
+# ----------------------
+*.log
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# ----------------------
+# JetBrains Rider (если используется)
+# ----------------------
+.idea/
+*.sln.iml
+
+# ----------------------
+# Global ignore
+# ----------------------
+*.swp
+*~
